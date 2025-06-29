@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Search, Home } from 'lucide-react';
+import { APP_CONFIG } from '../../constants';
 
 const Header = () => {
   return (
@@ -9,10 +10,10 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="w-8 h-8 bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">E</span>
+              <span className="text-white font-bold text-sm">J</span>
             </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-brand-600 to-brand-800 bg-clip-text text-transparent group-hover:scale-105 transition-transform">
-              EcoStore
+              {APP_CONFIG.name}
             </h1>
           </Link>
 
@@ -29,6 +30,18 @@ const Header = () => {
               className="text-gray-700 hover:text-brand-600 transition-colors font-medium"
             >
               Products
+            </Link>
+            <Link 
+              to="/about" 
+              className="text-gray-700 hover:text-brand-600 transition-colors font-medium"
+            >
+              About Us
+            </Link>
+            <Link 
+              to="/contact" 
+              className="text-gray-700 hover:text-brand-600 transition-colors font-medium"
+            >
+              Contact
             </Link>
           </nav>
 
