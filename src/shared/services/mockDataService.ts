@@ -2,99 +2,142 @@
 import { Product, ProductCategory } from '../models/Product';
 import { PRODUCT_CATEGORIES } from '../constants';
 
-// Mock data for demonstration
+// Mock data for JCI Maamoura products
 export const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'Wireless Bluetooth Headphones',
-    description: 'Premium quality wireless headphones with noise cancellation and 30-hour battery life.',
-    price: 199.99,
-    originalPrice: 249.99,
-    imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop',
+    name: 'Pin JCI Maamoura',
+    description: 'Pin officiel JCI Maamoura en métal de haute qualité avec logo brodé.',
+    price: 15.00,
+    imageUrl: 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=500&h=500&fit=crop',
     category: PRODUCT_CATEGORIES[0],
-    rating: 4.5,
-    reviewCount: 128,
+    rating: 4.8,
+    reviewCount: 45,
     inStock: true,
-    tags: ['wireless', 'bluetooth', 'noise-cancelling'],
+    tags: ['pin', 'officiel', 'métal'],
     images: [
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500&h=500&fit=crop'
+      'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=500&h=500&fit=crop'
     ]
   },
   {
     id: '2',
-    name: 'Smartphone Pro Max',
-    description: 'Latest flagship smartphone with advanced camera system and all-day battery.',
-    price: 999.99,
-    imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&h=500&fit=crop',
-    category: PRODUCT_CATEGORIES[0],
-    rating: 4.8,
-    reviewCount: 256,
-    inStock: true,
-    tags: ['smartphone', 'camera', 'flagship'],
-    images: [
-      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&h=500&fit=crop'
-    ]
-  },
-  {
-    id: '3',
-    name: 'Designer Cotton T-Shirt',
-    description: 'Comfortable and stylish cotton t-shirt perfect for everyday wear.',
-    price: 29.99,
-    originalPrice: 39.99,
+    name: 'T-Shirt JCI Maamoura',
+    description: 'T-shirt en coton premium avec logo JCI Maamoura. Disponible en plusieurs tailles.',
+    price: 35.00,
+    originalPrice: 45.00,
     imageUrl: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop',
     category: PRODUCT_CATEGORIES[1],
-    rating: 4.2,
+    rating: 4.6,
     reviewCount: 89,
     inStock: true,
-    tags: ['cotton', 'casual', 'comfortable'],
+    tags: ['t-shirt', 'coton', 'logo'],
     images: [
       'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop'
     ]
   },
   {
-    id: '4',
-    name: 'Modern Desk Lamp',
-    description: 'Sleek LED desk lamp with adjustable brightness and USB charging port.',
-    price: 79.99,
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop',
-    category: PRODUCT_CATEGORIES[2],
-    rating: 4.6,
-    reviewCount: 45,
+    id: '3',
+    name: 'Polo JCI Maamoura',
+    description: 'Polo élégant avec broderie JCI Maamoura, parfait pour les événements officiels.',
+    price: 55.00,
+    imageUrl: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500&h=500&fit=crop',
+    category: PRODUCT_CATEGORIES[1],
+    rating: 4.7,
+    reviewCount: 67,
     inStock: true,
-    tags: ['LED', 'adjustable', 'modern'],
+    tags: ['polo', 'broderie', 'officiel'],
     images: [
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop'
+      'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500&h=500&fit=crop'
+    ]
+  },
+  {
+    id: '4',
+    name: 'Mug JCI Maamoura',
+    description: 'Mug personnalisé JCI Maamoura en céramique, idéal pour vos pauses café.',
+    price: 25.00,
+    imageUrl: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&h=500&fit=crop',
+    category: PRODUCT_CATEGORIES[2],
+    rating: 4.5,
+    reviewCount: 34,
+    inStock: true,
+    tags: ['mug', 'céramique', 'personnalisé'],
+    images: [
+      'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&h=500&fit=crop'
     ]
   },
   {
     id: '5',
-    name: 'Programming Fundamentals Book',
-    description: 'Comprehensive guide to programming fundamentals for beginners and professionals.',
-    price: 49.99,
+    name: 'Carnet JCI Maamoura',
+    description: 'Carnet de notes premium avec couverture JCI Maamoura, parfait pour les réunions.',
+    price: 30.00,
     imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&h=500&fit=crop',
-    category: PRODUCT_CATEGORIES[3],
-    rating: 4.7,
-    reviewCount: 167,
+    category: PRODUCT_CATEGORIES[2],
+    rating: 4.4,
+    reviewCount: 56,
     inStock: true,
-    tags: ['programming', 'education', 'reference'],
+    tags: ['carnet', 'premium', 'réunions'],
     images: [
       'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&h=500&fit=crop'
     ]
   },
   {
     id: '6',
-    name: 'Yoga Mat Premium',
-    description: 'Non-slip premium yoga mat with extra cushioning for comfortable practice.',
-    price: 89.99,
-    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&h=500&fit=crop',
-    category: PRODUCT_CATEGORIES[4],
-    rating: 4.4,
-    reviewCount: 76,
+    name: 'Trophée JCI Excellence',
+    description: 'Trophée de reconnaissance JCI pour récompenser les membres exceptionnels.',
+    price: 120.00,
+    imageUrl: 'https://images.unsplash.com/photo-1567427018141-95ea69de46ce?w=500&h=500&fit=crop',
+    category: PRODUCT_CATEGORIES[3],
+    rating: 4.9,
+    reviewCount: 23,
     inStock: true,
-    tags: ['yoga', 'fitness', 'non-slip'],
+    tags: ['trophée', 'reconnaissance', 'excellence'],
     images: [
-      'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&h=500&fit=crop'
+      'https://images.unsplash.com/photo-1567427018141-95ea69de46ce?w=500&h=500&fit=crop'
+    ]
+  },
+  {
+    id: '7',
+    name: 'Médaille JCI Mérite',
+    description: 'Médaille de mérite JCI en bronze avec ruban officiel.',
+    price: 80.00,
+    imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop',
+    category: PRODUCT_CATEGORIES[3],
+    rating: 4.8,
+    reviewCount: 41,
+    inStock: true,
+    tags: ['médaille', 'mérite', 'bronze'],
+    images: [
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop'
+    ]
+  },
+  {
+    id: '8',
+    name: 'Porte-clés JCI Maamoura',
+    description: 'Porte-clés métallique avec logo JCI Maamoura gravé.',
+    price: 12.00,
+    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop',
+    category: PRODUCT_CATEGORIES[4],
+    rating: 4.3,
+    reviewCount: 78,
+    inStock: true,
+    tags: ['porte-clés', 'métallique', 'gravé'],
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop'
+    ]
+  },
+  {
+    id: '9',
+    name: 'Porte-clés JCI Premium',
+    description: 'Porte-clés premium en cuir avec logo JCI Maamoura embossé.',
+    price: 22.00,
+    imageUrl: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&h=500&fit=crop',
+    category: PRODUCT_CATEGORIES[4],
+    rating: 4.6,
+    reviewCount: 52,
+    inStock: true,
+    tags: ['porte-clés', 'cuir', 'premium'],
+    images: [
+      'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&h=500&fit=crop'
     ]
   }
 ];

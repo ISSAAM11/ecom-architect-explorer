@@ -28,9 +28,9 @@ export const ROUTES = {
 } as const;
 
 export const PRODUCT_CATEGORIES = [
-  { id: '1', name: 'Électronique', slug: 'electronics' },
-  { id: '2', name: 'Vêtements', slug: 'clothing' },
-  { id: '3', name: 'Maison & Jardin', slug: 'home-garden' },
-  { id: '4', name: 'Livres', slug: 'books' },
-  { id: '5', name: 'Sports', slug: 'sports' },
+  { id: '1', name: 'Pins', slug: 'pins' },
+  { id: '2', name: 'Vêtements', slug: 'clothes' },
+  { id: '3', name: 'Cadeaux', slug: 'gifts' },
+  { id: '4', name: 'Récompenses JCI', slug: 'jci-rewards' },
+  { id: '5', name: 'Porte-clés', slug: 'keyrings' },
 ] as const;

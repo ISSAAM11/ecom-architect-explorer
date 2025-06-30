@@ -1,8 +1,8 @@
 
 export const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('fr-TN', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'TND',
   }).format(price);
 };
 
