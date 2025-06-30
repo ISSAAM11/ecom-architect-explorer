@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import { Product } from '../../../shared/models/Product';
 import { formatPrice, calculateDiscount } from '../../../shared/utils/formatters';
 
@@ -9,7 +10,7 @@ interface ProductInfoProps {
   onAddToCart: () => void;
 }
 
-const ProductInfo = ({ product, quantity, onQuantityChange, onAddToCart }: ProductInfoProps) => {
+const ProductInfo = ({ product }: ProductInfoProps) => {
   return (
     <div className="space-y-6">
       <div>
@@ -18,14 +19,14 @@ const ProductInfo = ({ product, quantity, onQuantityChange, onAddToCart }: Produ
           <div className="flex items-center">
             <span className="text-yellow-400 text-lg">★</span>
             <span className="text-gray-700 ml-1">{product.rating}</span>
-            <span className="text-gray-500 ml-1">({product.reviewCount} reviews)</span>
+            <span className="text-gray-500 ml-1">({product.reviewCount} avis)</span>
           </div>
           <span className={`px-2 py-1 rounded-full text-sm font-medium ${
             product.inStock 
               ? 'bg-green-100 text-green-800' 
               : 'bg-red-100 text-red-800'
           }`}>
-            {product.inStock ? 'In Stock' : 'Out of Stock'}
+            {product.inStock ? 'En Stock' : 'Rupture de Stock'}
           </span>
         </div>
       </div>
@@ -41,7 +42,7 @@ const ProductInfo = ({ product, quantity, onQuantityChange, onAddToCart }: Produ
                 {formatPrice(product.originalPrice)}
               </span>
               <span className="bg-red-100 text-red-800 px-2 py-1 rounded-md text-sm font-semibold">
-                Save {calculateDiscount(product.originalPrice, product.price)}%
+                Économie {calculateDiscount(product.originalPrice, product.price)}%
               </span>
             </>
           )}
@@ -70,7 +71,7 @@ const ProductInfo = ({ product, quantity, onQuantityChange, onAddToCart }: Produ
 
       {product.specifications && product.specifications.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Specifications</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Spécifications</h3>
           <div className="bg-gray-50 rounded-lg p-4">
             <dl className="space-y-2">
               {product.specifications.map((spec, index) => (
@@ -85,38 +86,15 @@ const ProductInfo = ({ product, quantity, onQuantityChange, onAddToCart }: Produ
       )}
 
       <div className="bg-gray-50 rounded-xl p-6">
-        <div className="flex items-center justify-between mb-4">
-          <label htmlFor="quantity" className="text-lg font-medium text-gray-900">
-            Quantity
-          </label>
-          <div className="flex items-center border border-gray-300 rounded-lg">
-            <button
-              onClick={() => onQuantityChange(quantity - 1)}
-              disabled={quantity <= 1}
-              className="px-3 py-2 text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              −
-            </button>
-            <span className="px-4 py-2 text-gray-900 font-medium border-l border-r border-gray-300">
-              {quantity}
-            </span>
-            <button
-              onClick={() => onQuantityChange(quantity + 1)}
-              disabled={quantity >= 99}
-              className="px-3 py-2 text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              +
-            </button>
-          </div>
-        </div>
-
-        <button
-          onClick={onAddToCart}
-          disabled={!product.inStock}
-          className="w-full bg-brand-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-brand-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors transform hover:scale-105 hover:shadow-lg"
+        <Link
+          to="/contact"
+          className="w-full bg-brand-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-brand-700 transition-colors transform hover:scale-105 hover:shadow-lg inline-block text-center"
         >
-          {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-        </button>
+          Contactez-nous
+        </Link>
+        <p className="text-center text-gray-600 mt-4 text-sm">
+          Intéressé par ce produit ? Contactez-nous pour plus d'informations !
+        </p>
       </div>
     </div>
   );

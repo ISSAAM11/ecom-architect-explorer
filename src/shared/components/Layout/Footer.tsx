@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { APP_CONFIG } from '../../constants';
 
 const Footer = () => {
@@ -17,8 +17,8 @@ const Footer = () => {
               <h3 className="text-2xl font-bold">{APP_CONFIG.name}</h3>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted destination for quality products and exceptional service. 
-              Supporting local community development in Maamoura.
+              Votre destination de confiance pour des produits de qualité et un service exceptionnel. 
+              Soutenir le développement communautaire local à Maamoura.
             </p>
             <div className="flex space-x-4">
               <a
@@ -42,21 +42,21 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Liens Rapides</h4>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-white transition-colors">
-                  Home
+                  Accueil
                 </Link>
               </li>
               <li>
                 <Link to="/products" className="text-gray-300 hover:text-white transition-colors">
-                  Products
+                  Produits
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
-                  About Us
+                  À Propos
                 </Link>
               </li>
               <li>
@@ -69,15 +69,19 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
+                <MapPin size={16} className="text-gray-400" />
+                <span className="text-gray-300 text-sm">{APP_CONFIG.contact.address}</span>
+              </div>
+              <div className="flex items-center space-x-2">
                 <Phone size={16} className="text-gray-400" />
-                <span className="text-gray-300 text-sm">+216 XX XXX XXX</span>
+                <span className="text-gray-300 text-sm">{APP_CONFIG.contact.phone}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} className="text-gray-400" />
-                <span className="text-gray-300 text-sm">contact@jcimaamourastore.com</span>
+                <span className="text-gray-300 text-sm">{APP_CONFIG.contact.email}</span>
               </div>
             </div>
           </div>
@@ -86,7 +90,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} {APP_CONFIG.name}. All rights reserved.
+            © {new Date().getFullYear()} {APP_CONFIG.name}. Tous droits réservés.
           </p>
         </div>
       </div>

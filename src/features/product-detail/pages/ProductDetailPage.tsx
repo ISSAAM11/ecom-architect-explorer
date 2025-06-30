@@ -14,11 +14,8 @@ const ProductDetailPage = () => {
     isLoading,
     error,
     selectedImageIndex,
-    quantity,
     selectedImage,
-    selectImage,
-    updateQuantity,
-    addToCart
+    selectImage
   } = useProductDetailViewModel(id || '');
 
   if (isLoading) {
@@ -39,13 +36,13 @@ const ProductDetailPage = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">
-              {error || 'Product not found'}
+              {error || 'Produit non trouvé'}
             </h1>
             <Link
               to="/products"
               className="inline-block bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors"
             >
-              Back to Products
+              Retour aux Produits
             </Link>
           </div>
         </div>
@@ -63,9 +60,9 @@ const ProductDetailPage = () => {
         <div className="container mx-auto px-4 py-8">
           {/* Breadcrumb */}
           <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
-            <Link to="/" className="hover:text-brand-600">Home</Link>
+            <Link to="/" className="hover:text-brand-600">Accueil</Link>
             <span>/</span>
-            <Link to="/products" className="hover:text-brand-600">Products</Link>
+            <Link to="/products" className="hover:text-brand-600">Produits</Link>
             <span>/</span>
             <span className="text-gray-900">{product.name}</span>
           </nav>
@@ -83,9 +80,9 @@ const ProductDetailPage = () => {
             <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
               <ProductInfo
                 product={product}
-                quantity={quantity}
-                onQuantityChange={updateQuantity}
-                onAddToCart={addToCart}
+                quantity={1}
+                onQuantityChange={() => {}}
+                onAddToCart={() => {}}
               />
             </div>
           </div>

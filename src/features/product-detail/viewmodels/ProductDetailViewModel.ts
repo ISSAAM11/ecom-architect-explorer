@@ -8,15 +8,13 @@ export class ProductDetailViewModel {
   private _isLoading: boolean = true;
   private _error: string | null = null;
   private _selectedImageIndex: number = 0;
-  private _quantity: number = 1;
 
   constructor(
     private productId: string,
     private setProduct: (product: Product | null) => void,
     private setIsLoading: (loading: boolean) => void,
     private setError: (error: string | null) => void,
-    private setSelectedImageIndex: (index: number) => void,
-    private setQuantity: (quantity: number) => void
+    private setSelectedImageIndex: (index: number) => void
   ) {}
 
   get product() {
@@ -35,10 +33,6 @@ export class ProductDetailViewModel {
     return this._selectedImageIndex;
   }
 
-  get quantity() {
-    return this._quantity;
-  }
-
   get selectedImage() {
     if (!this._product) return '';
     const images = this._product.images || [this._product.imageUrl];
@@ -53,14 +47,14 @@ export class ProductDetailViewModel {
       const product = await MockDataService.getProductById(this.productId);
       
       if (!product) {
-        this.updateError('Product not found');
+        this.updateError('Produit non trouvé');
         return;
       }
       
       this.updateProduct(product);
     } catch (error) {
-      this.updateError('Failed to load product details');
-      console.error('Error loading product:', error);
+      this.updateError('Échec du chargement des détails du produit');
+      console.error('Erreur lors du chargement du produit:', error);
     } finally {
       this.updateLoading(false);
     }
@@ -68,22 +62,6 @@ export class ProductDetailViewModel {
 
   selectImage(index: number) {
     this.updateSelectedImageIndex(index);
-  }
-
-  updateQuantity(newQuantity: number) {
-    if (newQuantity >= 1 && newQuantity <= 99) {
-      this.updateQuantityState(newQuantity);
-    }
-  }
-
-  addToCart() {
-    if (!this._product) return;
-    
-    // Here you would typically call a cart service
-    console.log(`Adding ${this._quantity} of product ${this._product.id} to cart`);
-    
-    // Show success message (you could use a toast here)
-    alert(`Added ${this._quantity} ${this._product.name} to cart!`);
   }
 
   private updateProduct(product: Product) {
@@ -105,11 +83,6 @@ export class ProductDetailViewModel {
     this._selectedImageIndex = index;
     this.setSelectedImageIndex(index);
   }
-
-  private updateQuantityState(quantity: number) {
-    this._quantity = quantity;
-    this.setQuantity(quantity);
-  }
 }
 
 export const useProductDetailViewModel = (productId: string) => {
@@ -117,15 +90,13 @@ export const useProductDetailViewModel = (productId: string) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [quantity, setQuantity] = useState(1);
 
   const viewModel = new ProductDetailViewModel(
     productId,
     setProduct,
     setIsLoading,
     setError,
-    setSelectedImageIndex,
-    setQuantity
+    setSelectedImageIndex
   );
 
   useEffect(() => {
@@ -137,11 +108,8 @@ export const useProductDetailViewModel = (productId: string) => {
     isLoading,
     error,
     selectedImageIndex,
-    quantity,
     selectedImage: viewModel.selectedImage,
     selectImage: (index: number) => viewModel.selectImage(index),
-    updateQuantity: (quantity: number) => viewModel.updateQuantity(quantity),
-    addToCart: () => viewModel.addToCart(),
     viewModel
   };
 };

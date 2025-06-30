@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Search, Home } from 'lucide-react';
+import { Search, Home, Phone } from 'lucide-react';
 import { APP_CONFIG } from '../../constants';
 
 const Header = () => {
@@ -23,19 +23,19 @@ const Header = () => {
               className="flex items-center space-x-1 text-gray-700 hover:text-brand-600 transition-colors"
             >
               <Home size={18} />
-              <span>Home</span>
+              <span>Accueil</span>
             </Link>
             <Link 
               to="/products" 
               className="text-gray-700 hover:text-brand-600 transition-colors font-medium"
             >
-              Products
+              Produits
             </Link>
             <Link 
               to="/about" 
               className="text-gray-700 hover:text-brand-600 transition-colors font-medium"
             >
-              About Us
+              À Propos
             </Link>
             <Link 
               to="/contact" 
@@ -49,12 +49,12 @@ const Header = () => {
             <button className="p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors">
               <Search size={20} />
             </button>
-            <button className="p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors relative">
-              <ShoppingCart size={20} />
-              <span className="absolute -top-1 -right-1 bg-brand-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
-            </button>
+            <Link 
+              to="/contact" 
+              className="p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
+            >
+              <Phone size={20} />
+            </Link>
           </div>
         </div>
       </div>

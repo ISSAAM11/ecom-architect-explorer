@@ -8,7 +8,7 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Contact form submitted');
+    console.log('Formulaire de contact soumis');
   };
 
   return (
@@ -16,19 +16,19 @@ const ContactPage = () => {
       <div className="bg-white">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Contact Us</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Contactez-Nous</h1>
             <p className="text-xl text-gray-600 mb-12 text-center">
-              Get in touch with us. We'd love to hear from you!
+              Entrez en contact avec nous. Nous aimerions avoir de vos nouvelles !
             </p>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div className="bg-gray-50 p-8 rounded-lg">
-                <h2 className="text-2xl font-semibold mb-6">Send us a message</h2>
+                <h2 className="text-2xl font-semibold mb-6">Envoyez-nous un message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name
+                      Nom Complet
                     </label>
                     <input
                       type="text"
@@ -40,7 +40,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address
+                      Adresse Email
                     </label>
                     <input
                       type="email"
@@ -52,7 +52,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject
+                      Sujet
                     </label>
                     <input
                       type="text"
@@ -75,28 +75,28 @@ const ContactPage = () => {
                     ></textarea>
                   </div>
                   <Button type="submit" className="w-full">
-                    Send Message
+                    Envoyer le Message
                   </Button>
                 </form>
               </div>
 
               {/* Contact Information */}
               <div>
-                <h2 className="text-2xl font-semibold mb-6">Get in touch</h2>
+                <h2 className="text-2xl font-semibold mb-6">Entrez en contact</h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <MapPin className="w-6 h-6 text-brand-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Address</h3>
-                      <p className="text-gray-600">Maamoura, Tunisia</p>
+                      <h3 className="font-semibold text-gray-900">Adresse</h3>
+                      <p className="text-gray-600">{APP_CONFIG.contact.address}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start space-x-4">
                     <Phone className="w-6 h-6 text-brand-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Phone</h3>
-                      <p className="text-gray-600">+216 XX XXX XXX</p>
+                      <h3 className="font-semibold text-gray-900">Téléphone</h3>
+                      <p className="text-gray-600">{APP_CONFIG.contact.phone}</p>
                     </div>
                   </div>
                   
@@ -104,13 +104,13 @@ const ContactPage = () => {
                     <Mail className="w-6 h-6 text-brand-600 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900">Email</h3>
-                      <p className="text-gray-600">contact@jcimaamourastore.com</p>
+                      <p className="text-gray-600">{APP_CONFIG.contact.email}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="text-lg font-semibold mb-4">Follow us on social media</h3>
+                  <h3 className="text-lg font-semibold mb-4">Suivez-nous sur les réseaux sociaux</h3>
                   <div className="flex space-x-4">
                     <a
                       href={APP_CONFIG.social.facebook}
