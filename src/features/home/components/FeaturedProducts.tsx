@@ -1,8 +1,7 @@
-
-import { Link } from 'react-router-dom';
-import { Product } from '../../../shared/models/Product';
-import { formatPrice } from '../../../shared/utils/formatters';
-import LoadingSpinner from '../../../shared/components/LoadingSpinner';
+import { Link } from "react-router-dom";
+import { Product } from "../../../shared/models/Product";
+import { formatPrice } from "../../../shared/utils/formatters";
+import LoadingSpinner from "../../../shared/components/LoadingSpinner";
 
 interface FeaturedProductsProps {
   products: Product[];
@@ -10,12 +9,18 @@ interface FeaturedProductsProps {
   error: string | null;
 }
 
-const FeaturedProducts = ({ products, isLoading, error }: FeaturedProductsProps) => {
+const FeaturedProducts = ({
+  products,
+  isLoading,
+  error,
+}: FeaturedProductsProps) => {
   if (isLoading) {
     return (
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Featured Products</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Featured Products
+          </h2>
           <div className="flex justify-center">
             <LoadingSpinner size="lg" />
           </div>
@@ -28,7 +33,9 @@ const FeaturedProducts = ({ products, isLoading, error }: FeaturedProductsProps)
     return (
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Featured Products</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Featured Products
+          </h2>
           <div className="text-center text-red-600">{error}</div>
         </div>
       </section>
@@ -38,7 +45,9 @@ const FeaturedProducts = ({ products, isLoading, error }: FeaturedProductsProps)
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Featured Products</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+          Featured Products
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <div
@@ -62,7 +71,9 @@ const FeaturedProducts = ({ products, isLoading, error }: FeaturedProductsProps)
                 <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-brand-600 transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{product.description}</p>
+                <p className="text-gray-600 mb-4 line-clamp-2">
+                  {product.description}
+                </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <span className="text-2xl font-bold text-brand-600">
@@ -76,7 +87,9 @@ const FeaturedProducts = ({ products, isLoading, error }: FeaturedProductsProps)
                   </div>
                   <div className="flex items-center">
                     <span className="text-yellow-400">★</span>
-                    <span className="text-sm text-gray-600 ml-1">{product.rating}</span>
+                    <span className="text-sm text-gray-600 ml-1">
+                      {product.rating}
+                    </span>
                   </div>
                 </div>
                 <Link
@@ -94,7 +107,7 @@ const FeaturedProducts = ({ products, isLoading, error }: FeaturedProductsProps)
             to="/products"
             className="inline-block bg-gradient-to-r from-brand-600 to-brand-500 text-white px-8 py-3 rounded-lg hover:from-brand-700 hover:to-brand-600 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            View All Products
+            Voir tous les produits
           </Link>
         </div>
       </div>

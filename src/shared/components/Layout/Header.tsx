@@ -5,13 +5,13 @@ import { APP_CONFIG } from "../../constants";
 const Header = () => {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-1 py-1">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-1 group">
+          <Link to="/" className="flex items-center space-x-9 group">
             <div
               style={{
-                width: "110px",
-                height: "50px",
+                width: "150px",
+                height: "65px",
                 overflow: "hidden",
                 display: "flex",
                 justifyContent: "center",
@@ -28,9 +28,6 @@ const Header = () => {
                 }}
               />
             </div>
-            {/* <h1 className="text-2xl font-bold bg-gradient-to-r from-brand-600 to-brand-800 bg-clip-text text-transparent group-hover:scale-105 transition-transform">
-              {APP_CONFIG.name}
-            </h1> */}
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
