@@ -1,7 +1,6 @@
-
-import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import { APP_CONFIG } from '../../constants';
+import { Link } from "react-router-dom";
+import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { APP_CONFIG } from "../../constants";
 
 const Footer = () => {
   return (
@@ -11,14 +10,12 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">J</span>
-              </div>
               <h3 className="text-2xl font-bold">{APP_CONFIG.name}</h3>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Votre destination de confiance pour des produits de qualité et un service exceptionnel. 
-              Soutenir le développement communautaire local à Maamoura.
+              Votre destination de confiance pour des produits de qualité et un
+              service exceptionnel. Soutenir le développement communautaire
+              local à Maamoura.
             </p>
             <div className="flex space-x-4">
               <a
@@ -45,22 +42,34 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Liens Rapides</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-white transition-colors">
+                <Link
+                  to="/"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
                   Accueil
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="text-gray-300 hover:text-white transition-colors">
+                <Link
+                  to="/products"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
                   Produits
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
                   À Propos
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
+                <Link
+                  to="/contact"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -73,15 +82,21 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <MapPin size={16} className="text-gray-400" />
-                <span className="text-gray-300 text-sm">{APP_CONFIG.contact.address}</span>
+                <span className="text-gray-300 text-sm">
+                  {APP_CONFIG.contact.address}
+                </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone size={16} className="text-gray-400" />
-                <span className="text-gray-300 text-sm">{APP_CONFIG.contact.phone}</span>
+                <span className="text-gray-300 text-sm">
+                  {APP_CONFIG.contact.phone}
+                </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} className="text-gray-400" />
-                <span className="text-gray-300 text-sm">{APP_CONFIG.contact.email}</span>
+                <span className="text-gray-300 text-sm">
+                  {APP_CONFIG.contact.email}
+                </span>
               </div>
             </div>
           </div>
@@ -90,7 +105,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} {APP_CONFIG.name}. Tous droits réservés.
+            © {new Date().getFullYear()} {APP_CONFIG.name}. Tous droits
+            réservés.
           </p>
         </div>
       </div>
