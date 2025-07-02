@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Home, Phone } from "lucide-react";
@@ -12,9 +11,9 @@ const MobileHeader = () => {
 
   return (
     <div className="md:hidden">
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-1">
         <Link to="/" className="flex items-center">
-          <div className="w-12 h-12 overflow-hidden rounded-full">
+          <div className="w-36 h-16 overflow-hidden rounded-full">
             <img
               src="https://scontent.ftun2-2.fna.fbcdn.net/v/t39.30808-6/417436500_728846719361075_2376986869935744299_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=60kRAJy3Ln8Q7kNvwGQPQ2E&_nc_oc=AdkaBviDgkPD59iZ-VdgDrlifXApK6_PLkQye5UU9pxQiPzb2Q4glrfZ7y-kasCKFQE&_nc_zt=23&_nc_ht=scontent.ftun2-2.fna&_nc_gid=aokm3gUR97z8t3Vb4f0Lwg&oh=00_AfPT6RIcTf_MTbJ5NrJamVCy0u8WIi-3QuPuWkqgX0W9cg&oe=6867A836"
               alt="JCI Maamoura"

@@ -1,14 +1,13 @@
-
-import Layout from '../shared/components/Layout/Layout';
-import { Button } from '@/components/ui/button';
-import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import { APP_CONFIG } from '../shared/constants';
+import Layout from "../shared/components/Layout/Layout";
+import { Button } from "@/components/ui/button";
+import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { APP_CONFIG } from "../shared/constants";
 
 const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Formulaire de contact soumis');
+    console.log("Formulaire de contact soumis");
   };
 
   return (
@@ -16,18 +15,26 @@ const ContactPage = () => {
       <div className="bg-white">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Contactez-Nous</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+              Contactez-Nous
+            </h1>
             <p className="text-xl text-gray-600 mb-12 text-center">
-              Entrez en contact avec nous. Nous aimerions avoir de vos nouvelles !
+              Entrez en contact avec nous. Nous aimerions avoir de vos nouvelles
+              !
             </p>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div className="bg-gray-50 p-8 rounded-lg">
-                <h2 className="text-2xl font-semibold mb-6">Envoyez-nous un message</h2>
+                <h2 className="text-2xl font-semibold mb-6">
+                  Envoyez-nous un message
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Nom Complet
                     </label>
                     <input
@@ -39,7 +46,10 @@ const ContactPage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Adresse Email
                     </label>
                     <input
@@ -51,7 +61,10 @@ const ContactPage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Sujet
                     </label>
                     <input
@@ -63,7 +76,10 @@ const ContactPage = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Message
                     </label>
                     <textarea
@@ -82,35 +98,45 @@ const ContactPage = () => {
 
               {/* Contact Information */}
               <div>
-                <h2 className="text-2xl font-semibold mb-6">Entrez en contact</h2>
+                <h2 className="text-2xl font-semibold mb-6">
+                  Entrez en contact
+                </h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <MapPin className="w-6 h-6 text-brand-600 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900">Adresse</h3>
-                      <p className="text-gray-600">{APP_CONFIG.contact.address}</p>
+                      <p className="text-gray-600">
+                        {APP_CONFIG.contact.address}
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
                     <Phone className="w-6 h-6 text-brand-600 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900">Téléphone</h3>
-                      <p className="text-gray-600">{APP_CONFIG.contact.phone}</p>
+                      <p className="text-gray-600">
+                        {APP_CONFIG.contact.phone}
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
                     <Mail className="w-6 h-6 text-brand-600 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900">Email</h3>
-                      <p className="text-gray-600">{APP_CONFIG.contact.email}</p>
+                      <p className="text-gray-600">
+                        {APP_CONFIG.contact.email}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="text-lg font-semibold mb-4">Suivez-nous sur les réseaux sociaux</h3>
+                  <h3 className="text-lg font-semibold mb-4">
+                    Suivez-nous sur les réseaux sociaux
+                  </h3>
                   <div className="flex space-x-4">
                     <a
                       href={APP_CONFIG.social.facebook}
