@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from 'react';
 import { ProductFilter } from '../../../shared/models/Product';
 import { PRODUCT_CATEGORIES } from '../../../shared/constants';
 
@@ -9,8 +10,32 @@ interface ProductFiltersProps {
 }
 
 const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFiltersProps) => {
+  const [searchQuery, setSearchQuery] = useState(filters.searchQuery || '');
+
+  // Debounce search query
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (searchQuery !== (filters.searchQuery || '')) {
+        handleFilterChange('searchQuery', searchQuery);
+      }
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
+
+  // Update local search state when filters change externally
+  useEffect(() => {
+    setSearchQuery(filters.searchQuery || '');
+  }, [filters.searchQuery]);
+
   const handleFilterChange = (key: keyof ProductFilter, value: any) => {
+    console.log('Filter change:', key, value);
     onFiltersChange({ [key]: value });
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
   };
 
   const hasActiveFilters = Object.keys(filters).some(key => 
@@ -20,13 +45,13 @@ const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFil
   return (
     <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-gray-900">Filters</h3>
+        <h3 className="text-lg font-semibold text-gray-900">Filtres</h3>
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}
             className="text-sm text-brand-600 hover:text-brand-700 font-medium"
           >
-            Clear All
+            Tout effacer
           </button>
         )}
       </div>
@@ -35,13 +60,13 @@ const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFil
         {/* Search */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Search
+            Rechercher
           </label>
           <input
             type="text"
-            value={filters.searchQuery || ''}
-            onChange={(e) => handleFilterChange('searchQuery', e.target.value)}
-            placeholder="Search products..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            placeholder="Rechercher des produits..."
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
           />
         </div>
@@ -49,14 +74,14 @@ const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFil
         {/* Category */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Category
+            Catégorie
           </label>
           <select
             value={filters.category || ''}
             onChange={(e) => handleFilterChange('category', e.target.value || undefined)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
           >
-            <option value="">All Categories</option>
+            <option value="">Toutes les catégories</option>
             {PRODUCT_CATEGORIES.map((category) => (
               <option key={category.id} value={category.slug}>
                 {category.name}
@@ -68,7 +93,7 @@ const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFil
         {/* Price Range */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Price Range
+            Gamme de prix
           </label>
           <div className="grid grid-cols-2 gap-2">
             <input
@@ -91,18 +116,18 @@ const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFil
         {/* Rating */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Minimum Rating
+            Note minimum
           </label>
           <select
             value={filters.rating || ''}
             onChange={(e) => handleFilterChange('rating', e.target.value ? Number(e.target.value) : undefined)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
           >
-            <option value="">Any Rating</option>
-            <option value="4">4+ Stars</option>
-            <option value="3">3+ Stars</option>
-            <option value="2">2+ Stars</option>
-            <option value="1">1+ Stars</option>
+            <option value="">Toute note</option>
+            <option value="4">4+ Étoiles</option>
+            <option value="3">3+ Étoiles</option>
+            <option value="2">2+ Étoiles</option>
+            <option value="1">1+ Étoiles</option>
           </select>
         </div>
 
@@ -115,7 +140,7 @@ const ProductFilters = ({ filters, onFiltersChange, onClearFilters }: ProductFil
               onChange={(e) => handleFilterChange('inStock', e.target.checked ? true : undefined)}
               className="rounded border-gray-300 text-brand-600 focus:ring-brand-500"
             />
-            <span className="ml-2 text-sm text-gray-700">In Stock Only</span>
+            <span className="ml-2 text-sm text-gray-700">En stock seulement</span>
           </label>
         </div>
       </div>

@@ -55,47 +55,62 @@ export class ProductsViewModel {
   }
 
   applyFilters(newFilters: ProductFilter) {
+    console.log('Applying filters:', newFilters);
     this.updateFilters({ ...this._filters, ...newFilters });
     this.filterProducts();
   }
 
   clearFilters() {
+    console.log('Clearing all filters');
     this.updateFilters({});
     this.updateFilteredProducts(this._products);
   }
 
   private filterProducts() {
     let filtered = [...this._products];
+    console.log('Starting filter with products:', filtered.length);
+    console.log('Current filters:', this._filters);
 
     if (this._filters.category) {
       filtered = filtered.filter(product => product.category.slug === this._filters.category);
+      console.log('After category filter:', filtered.length);
     }
 
     if (this._filters.minPrice !== undefined) {
       filtered = filtered.filter(product => product.price >= this._filters.minPrice!);
+      console.log('After min price filter:', filtered.length);
     }
 
     if (this._filters.maxPrice !== undefined) {
       filtered = filtered.filter(product => product.price <= this._filters.maxPrice!);
+      console.log('After max price filter:', filtered.length);
     }
 
     if (this._filters.inStock !== undefined) {
       filtered = filtered.filter(product => product.inStock === this._filters.inStock);
+      console.log('After stock filter:', filtered.length);
     }
 
     if (this._filters.rating !== undefined) {
       filtered = filtered.filter(product => product.rating >= this._filters.rating!);
+      console.log('After rating filter:', filtered.length);
     }
 
-    if (this._filters.searchQuery) {
-      const query = this._filters.searchQuery.toLowerCase();
-      filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(query) ||
-        product.description.toLowerCase().includes(query) ||
-        product.tags.some(tag => tag.toLowerCase().includes(query))
-      );
+    if (this._filters.searchQuery && this._filters.searchQuery.trim() !== '') {
+      const query = this._filters.searchQuery.toLowerCase().trim();
+      console.log('Searching for:', query);
+      filtered = filtered.filter(product => {
+        const matchesName = product.name.toLowerCase().includes(query);
+        const matchesDescription = product.description.toLowerCase().includes(query);
+        const matchesTags = product.tags.some(tag => tag.toLowerCase().includes(query));
+        const matchesCategory = product.category.name.toLowerCase().includes(query);
+        
+        return matchesName || matchesDescription || matchesTags || matchesCategory;
+      });
+      console.log('After search filter:', filtered.length);
     }
 
+    console.log('Final filtered products:', filtered.length);
     this.updateFilteredProducts(filtered);
   }
 

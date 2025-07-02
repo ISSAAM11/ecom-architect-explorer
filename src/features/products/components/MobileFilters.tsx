@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Filter, X } from "lucide-react";
 import { ProductFilter } from '../../../shared/models/Product';
 import { PRODUCT_CATEGORIES } from '../../../shared/constants';
@@ -12,9 +12,32 @@ interface MobileFiltersProps {
 
 const MobileFilters = ({ filters, onFiltersChange, onClearFilters }: MobileFiltersProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(filters.searchQuery || '');
+
+  // Debounce search query
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (searchQuery !== (filters.searchQuery || '')) {
+        handleFilterChange('searchQuery', searchQuery);
+      }
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
+
+  // Update local search state when filters change externally
+  useEffect(() => {
+    setSearchQuery(filters.searchQuery || '');
+  }, [filters.searchQuery]);
 
   const handleFilterChange = (key: keyof ProductFilter, value: any) => {
+    console.log('Mobile filter change:', key, value);
     onFiltersChange({ [key]: value });
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
   };
 
   const hasActiveFilters = Object.keys(filters).some(key => 
@@ -59,8 +82,8 @@ const MobileFilters = ({ filters, onFiltersChange, onClearFilters }: MobileFilte
                 </label>
                 <input
                   type="text"
-                  value={filters.searchQuery || ''}
-                  onChange={(e) => handleFilterChange('searchQuery', e.target.value)}
+                  value={searchQuery}
+                  onChange={handleSearchChange}
                   placeholder="Rechercher des produits..."
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                 />
