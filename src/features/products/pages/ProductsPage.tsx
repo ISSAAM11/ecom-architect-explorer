@@ -1,6 +1,8 @@
+
 import Layout from "../../../shared/components/Layout/Layout";
 import ProductGrid from "../components/ProductGrid";
 import ProductFilters from "../components/ProductFilters";
+import MobileFilters from "../components/MobileFilters";
 import { useProductsViewModel } from "../viewmodels/ProductsViewModel";
 
 const ProductsPage = () => {
@@ -29,7 +31,8 @@ const ProductsPage = () => {
 
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-1">
+            {/* Desktop Filters */}
+            <div className="hidden lg:block lg:col-span-1">
               <ProductFilters
                 filters={filters}
                 onFiltersChange={applyFilters}
@@ -40,9 +43,19 @@ const ProductsPage = () => {
             <div className="lg:col-span-3">
               <div className="mb-6 flex items-center justify-between">
                 <p className="text-gray-600">
-                  Showing {filteredProducts.length} products
+                  {filteredProducts.length} produit{filteredProducts.length !== 1 ? 's' : ''}
                 </p>
+                
+                {/* Mobile Filters */}
+                <div className="lg:hidden">
+                  <MobileFilters
+                    filters={filters}
+                    onFiltersChange={applyFilters}
+                    onClearFilters={clearFilters}
+                  />
+                </div>
               </div>
+              
               <ProductGrid
                 products={filteredProducts}
                 isLoading={isLoading}

@@ -1,12 +1,18 @@
+
 import { Link } from "react-router-dom";
 import { Search, Home, Phone } from "lucide-react";
 import { APP_CONFIG } from "../../constants";
+import MobileHeader from "./MobileHeader";
 
 const Header = () => {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <div className="container mx-auto px-1 py-1">
-        <div className="flex items-center justify-between">
+        {/* Mobile Header */}
+        <MobileHeader />
+
+        {/* Desktop Header */}
+        <div className="hidden md:flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-9 group">
             <div
               style={{
