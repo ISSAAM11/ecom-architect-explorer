@@ -1,6 +1,6 @@
 # Welcome to your Lovable project
 
-## Project info
+## Project info 
 
 **URL**: https://lovable.dev/projects/76f13526-a0b9-44eb-aba7-b7c585c0f357
 
@@ -22,7 +22,7 @@ The only requirement is having Node.js & npm installed - [install with nvm](http
 
 Follow these steps:
 
-```sh
+```sh0
 # Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
 
